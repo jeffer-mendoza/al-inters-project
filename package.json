@@ -1,0 +1,33 @@
+{
+  "name": "moviedb",
+  "homepage": "https://github.com/jeffer-mendoza/moviedb",
+  "author": "Jefferson Mendoza <jefferson.mendoza@correounivalle.edu.co>",
+  "description": "web application for course Angular Js",
+  "bugs": {
+    "url": "https://github.com/jeffer-mendoza/moviedb/issues"
+  },
+  "scripts": {
+    "start": "ws -p 8888 -d src/main/"
+    },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jeffer-mendoza/moviedb.git"
+  },
+  "version": "2.1.0",
+  "license": "MIT",
+  "engines": {
+    "node": "5.9.0"
+  },
+  "dependencies": {
+    "bower": "^1.7.9"
+  },
+  "folders": {
+    "build": "target/",
+    "builde2e": "targete2e/",
+    "translations": "po/",
+    "wwwRoot": "src/main/",
+    "jsSource": "src/main/",
+    "testRoot": "src/test/"
+  },
+  "devDependencies": {}
+}

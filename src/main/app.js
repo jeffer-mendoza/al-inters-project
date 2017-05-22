@@ -1,36 +1,55 @@
-(function(){
+/**
+ * Creates the application root for an angular application at uri (/)
+ *
+ * @module app
+ *
+ * @requires config/config
+ * @requires ngRoute
+ * @requires ngResource
+ * @requires LocalStorageModule
+ *
+ * @param angular RequireJS inclusion of AngularJS library
+ * @param config RequireJS inclusion of config/config
+ *
+ * @author Barry Skidmore <bskidmore@alertlogic.com>
+ *
+ * @returns instance of the app
+ *
+ * @copyright Alert Logic, Inc 2014
+ */
+define([ 'angular',
+         'config/config',
+         'ngRoute', 'ngResource', 'LocalStorageModule',
+         'tmdb/partials/home/HomeController',
+        ],
+    function( angular, config, $resource, $location, LocalStorageModule, HomeController) {
+    	"use strict";
 
-var app = angular.module("app",[]);
+        /** @constructs app */
+        var angularModules = config.standardAngularModules.concat( 'LocalStorageModule' );
 
-app.controller('StoreController', function(){
+        /** @constructs app */
+        var app = angular.module("app", angularModules );
 
-this.products = gems;
+        //  Configure $locationProvider and $routeProvider to allow top-level navigation within this route
+    	app.config(['$locationProvider', function($locationProvider) {
 
-});
+            $locationProvider.html5Mode(false);
 
-var gems =[
-{
-  name: 'Fast and Furious',
-  price: 2.95,
-  description: 'Action...',
-  purchase: true,
-  soldout: false
-},
-{
-  name: 'Batman 3',
-  price: 2.95,
-  description: 'Action...',
-  purchase: false,
-  soldout: false
-},
-{
-  name: 'Goal 2',
-  price: 2.95,
-  description: 'Action...',
-  purchase: true,
-  soldout: true
-},
+    	}]);
 
-]
+        app.controller( "HomeController", HomeController);
 
-})();
+        app.config(['$routeProvider', function($routeProvider) {
+            $routeProvider.when( '/', { templateUrl: '/tmdb/partials/home/home.html', controller: 'HomeController' } );
+            $routeProvider.when( '/home', { templateUrl: '/tmdb/partials/home/home.html', controller: 'HomeController' } );
+            $routeProvider.otherwise( {
+                template: function() {
+                    throw 'An internal error occurred because the given path does not resolve to a known route.';
+                }
+            });
+        }]);
+
+    	return app;
+    }
+);

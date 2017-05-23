@@ -9,15 +9,12 @@ define( [ 'angular' ],
              * ngStart's src/main/main.js file should include the appropriate requirejs configuration to
              * facilitate the inclusion for objects stored in idiosyncratic locations.
              */
-            config.standardRequireModules = [   'angular', 'ngRoute', 'gettext', 'app',
-                                                'LocalStorageModule'
-                                                ];
+            config.standardRequireModules = [   'angular', 'ngRoute', 'app', 'LocalStorageModule' ];
 
             /**
              * These are the angular modules that every application module should require in order to execute.
              */
-            config.standardAngularModules = [    'ngRoute', 'ngResource', 'gettext', 'LocalStorageModule',
-                                                'config'     ];
+            config.standardAngularModules = [    'ngRoute', 'LocalStorageModule', 'config',  ];
 
             /**
              * Development or production
@@ -77,18 +74,12 @@ define( [ 'angular' ],
                 baseUrl: "/",
                 paths: {
                     'angular': 'vendor/angular/angular.min',
-                    'ngRoute': 'vendor/angular-route/angular-route.min',
                     'LocalStorageModule': 'vendor/angular-local-storage/dist/angular-local-storage.min',
-                    'gettext': 'vendor/angular-gettext/dist/angular-gettext.min',
-                    'ngResource': 'vendor/angular-resource/angular-resource.min',
                     'ngRoute': 'vendor/angular-route/angular-route.min'
                 },
                 shim: {
                     'angular': { deps: [], exports: 'angular' },
-                    'ngRoute': {deps: ['angular']},
-                    'LocalStorageModule': {deps: ['angular']},
-                    'gettext': {deps: ['angular']},
-                    'ngResource': {deps: ['angular']},
+                    'LocalStorageModule' : {deps: ['angular']},
                     'ngRoute': {deps: ['angular']}
                 }
             };

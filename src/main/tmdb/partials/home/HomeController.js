@@ -22,7 +22,7 @@ define( [ 'angular',
 
         var HomeController = function($scope) {
 
-            $scope.title = 'Welcome to the movie db';
+            $scope.title = 'MovieTv is the best webapp to watch movies';
         };
 
         HomeController.$inject = [ '$scope'];

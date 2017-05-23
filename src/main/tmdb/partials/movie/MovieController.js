@@ -1,40 +1,43 @@
 /**
-* MovieController
-*
-* @module tmdb.partials.movie.MovieController
-*
-* @requires angular
-* @requires config
-* @requires TMDBAPIService
-*
-* @param angular
-* @param config
-* @param TMDBAPIService
-*
-* @author Jefferson Mendoza <jefferson.mendoza@correounivalle.edu.co>
-*
-* @returns instance of the MovieController
-*
-**/
+ * MovieController
+ *
+ * @module tmdb.partials.movie.MovieController
+ *
+ * @requires angular
+ * @requires config
+ * @requires TMDBAPIService
+ *
+ * @param angular
+ * @param config
+ * @param TMDBAPIService
+ *
+ * @author Jefferson Mendoza <jefferson.mendoza@correounivalle.edu.co>
+ *
+ * @returns instance of the MovieController
+ *
+ **/
 
-define(['angular', 'config/config', 'tmdb/services/TMDBAPIService'],
-  function(angular, config, TMDBAPIService){
-    "use strict";
+define(['angular','config/config', 'tmdb/services/TMDBAPIService'],
 
-    var MovieController = function($scope, TMDBAPIService){
+    function (angular, config, TMDBAPIService) {
+        "use strict";
 
-       $scope.movies = [];
+        var MovieController = function ($scope, TMDBAPIService) {
+            $scope.view = {
+                movies: [],
+                title: "List Movies",
+                images: config.apiImg
+            };
+            var api = TMDBAPIService.Discover();
+            api.discover.movies(1).then(function (response) {
+                console.log(response.data);
+                $scope.movies = response.data;
+            });
+        };
 
-    var api = TMDBAPIService.Discover();
-    api.discover.movies().then(function( response){
-      //$scope.view.movies = responde.data;
-      console.data(response);
-    });
-  };
+        MovieController.$inject = ['$scope', 'TMDBAPIService'];
 
-    MovieController.$inject = ['$scope', 'TMDBAPIService'];
+        return MovieController;
 
-    return MovieController;
-
-  }
+    }
 );

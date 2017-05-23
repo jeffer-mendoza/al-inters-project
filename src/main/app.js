@@ -6,6 +6,7 @@
  * @requires angular
  * @requires config/config
  * @requires ngRoute
+ * @requires ngResource
  * @requires LocalStorageModule
  *
  * @param angular RequireJS inclusion of AngularJS library
@@ -43,10 +44,9 @@ define([ 'angular',
         app.service("TMDBAPIService", TMDBAPIService);
         app.controller( "HomeController", HomeController);
         app.controller( "MovieController", MovieController);
-
         app.config(['$routeProvider', function($routeProvider) {
             $routeProvider.when( '/', { templateUrl: '/tmdb/partials/home/home.html', controller: 'HomeController' } );
-            $routeProvider.when('/movie', { templateUrl: '/tmdb/partials/movie/list.html', controller: 'MovieController'})
+            $routeProvider.when('/movie', { templateUrl: '/tmdb/partials/movie/list.html', controller: 'MovieController'});
             $routeProvider.otherwise( {
                 template: function() {
                     throw 'An internal error occurred because the given path does not resolve to a known route.';

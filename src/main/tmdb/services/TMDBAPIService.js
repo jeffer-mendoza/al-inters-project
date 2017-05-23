@@ -1,88 +1,88 @@
 /**
-* Abstraction for the tmdb.org API
-*
-* @module tmdb.services.TMDBAPIService
-*
-* @requires angular
-* @requires ngRoute
-* @requires ngResource
-* @requires LocalStorageModule
-* @requires config/config
-*
-* @param angular
-*
-* @author Jefferson Mendoza <jefferson.mendoza@correounivalle.edu.co>
-*
-* @returns TMDB API's
-**/
+ * Abstraction for the tmdb.org API
+ *
+ * @module tmdb.services.TMDBAPIService
+ *
+ * @requires angular
+ * @requires ngRoute
+ * @requires ngResource
+ * @requires LocalStorageModule
+ * @requires config/config
+ *
+ * @param angular
+ *
+ * @author Jefferson Mendoza <jefferson.mendoza@correounivalle.edu.co>
+ *
+ * @returns TMDB API's
+ **/
 define(['angular',
         'ngRoute',
         'ngResource',
         'LocalStorageModule',
         'config/config'],
-      function(angular){
+    function (angular) {
         "use strict";
+        var TMDBAPIService = function ($rootScope, $http, $timeout, $resource, LocalStorageModule, $location) {
+            this.ServiceCache = [];
 
-        var TMDBAPIService = function($rootScope, $http, $timeout, $resource, LocalStorageService, $location){
+            this.Discover = function () {
 
-          this.ServiceCache = [];
+                return this.GetCachedService("discover", function () {
+                    var serviceVersion = "3";
+                    var serviceBase = this._normalizeEndpoint(serviceVersion);
 
-          this.Discover = function(){
+                    var movieList = function (page) {
+                        if (page === undefined) {
+                            page = 1;
+                        }
 
-               return this.GetCachedService("discover", function(){
-                 var serviceVersion = "3";
-                 var serviceBase = this._normalizeEndPoint(serviceVersion, "discover");
+                        var uri = serviceBase.url + '/discover/movie?page=' + page + '&api_key=' + serviceBase.apiKey;
 
-                 var movieList = function(page){
-                   if(page === undefined){
-                     page = 1;
-                   }
+                        return $http.get(uri);
+                    };
 
-                   var uri = serviceBase.url + '/discover/movie?page=' + page + '&api_key='+serviceBase.apiKey;
+                    return {
+                        discover: {
+                            movies: movieList
+                        }
+                    };
+                });
 
-                   return $http.get(uri);
-                 };
-
-                 return {
-                   discover:{
-                     movies: movieList
-                   }
-                 };
-               });
-
-             };
+            };
 
 
-        this.GetCachedService = function( serviceName, instantiateFunction ) {
+            this.GetCachedService = function (serviceName, instantiateFunction) {
 
-               if ( this.ServiceCache[serviceName] !== undefined ) {
-                   return this.ServiceCache[serviceName];
-               }
+                if (this.ServiceCache[serviceName] !== undefined) {
+                    return this.ServiceCache[serviceName];
+                }
 
-               if ( instantiateFunction ) {
-                   var serviceInstance = instantiateFunction.call( this );
-                   if ( serviceInstance !== undefined ) {
-                       this.ServiceCache[serviceName] = serviceInstance;
-                       return serviceInstance;
-                   }
-               }
+                if (instantiateFunction) {
+                    var serviceInstance = instantiateFunction.call(this);
+                    if (serviceInstance !== undefined) {
+                        this.ServiceCache[serviceName] = serviceInstance;
+                        return serviceInstance;
+                    }
+                }
 
-               return undefined;
-           };
+                return undefined;
+            };
 
-           /**
-           * Define the url for access to service tmdb.org, adding the user apikey
-           **/
-           this._normalizeEndpoint = function( version ) {
-               var config = angular.module("config");
+            /**
+             * Define the url for access to service tmdb.org, adding the user apikey
+             **/
+            this._normalizeEndpoint = function(version) {
+                var config = angular.module("config");
 
-               return {'url': config.apiUrl + version,
-                       'apiKey': config.apiKey};
-           };
-       };
+                return {
+                    'url': config.apiUrl + version,
+                    'apiKey': config.apiKey
+                };
+            };
+        };
 
-        TMDBAPIService.$inject = ['$rootScope', '$http', '$timeout', '$resource', 'LocalStorageService', '$location'];
+        TMDBAPIService.$inject = ['$rootScope', '$http', '$timeout', '$resource',  '$location'];
 
         return TMDBAPIService;
-      }
-    );
+    }
+);

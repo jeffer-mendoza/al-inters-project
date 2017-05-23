@@ -5,9 +5,11 @@
 *
 * @requires angular
 * @requires config
+* @requires TMDBAPIService
 *
 * @param angular
 * @param config
+* @param TMDBAPIService
 *
 * @author Jefferson Mendoza <jefferson.mendoza@correounivalle.edu.co>
 *
@@ -15,15 +17,22 @@
 *
 **/
 
-define(['angular', 'config/config'],
-  function(angular, config){
+define(['angular', 'config/config', 'tmdb/services/TMDBAPIService'],
+  function(angular, config, TMDBAPIService){
     "use strict";
 
-    var MovieController = function($scope){
-       $scope.title = 'List Movies';
-    };
+    var MovieController = function($scope, TMDBAPIService){
 
-    MovieController.inject = ['$scope'];
+       $scope.movies = [];
+
+    var api = TMDBAPIService.Discover();
+    api.discover.movies().then(function( response){
+      //$scope.view.movies = responde.data;
+      console.data(response);
+    });
+  };
+
+    MovieController.$inject = ['$scope', 'TMDBAPIService'];
 
     return MovieController;
 

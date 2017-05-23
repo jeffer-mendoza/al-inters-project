@@ -19,11 +19,12 @@
  */
 define([ 'angular',
          'config/config',
-         'ngRoute', 'LocalStorageModule',
+         'ngRoute', 'ngResource', 'LocalStorageModule',
+         'tmdb/services/TMDBAPIService',
          'tmdb/partials/home/HomeController',
          'tmdb/partials/movie/MovieController'
         ],
-    function( angular, config, $location, LocalStorageModule, HomeController, MovieController) {
+    function( angular, config, $resource, $location, LocalStorageModule, TMDBAPIService, HomeController, MovieController) {
     	"use strict";
 
         /** @constructs app */
@@ -39,6 +40,7 @@ define([ 'angular',
 
     	}]);
 
+        app.service("TMDBAPIService", TMDBAPIService);
         app.controller( "HomeController", HomeController);
         app.controller( "MovieController", MovieController);
 

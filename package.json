@@ -7,7 +7,7 @@
     "url": "https://github.com/jeffer-mendoza/moviedb/issues"
   },
   "scripts": {
-    "start": "ws -p 8888 -d src/main/",
+    "start": "ws -p 8080 -d src/main/",
     "bower": "bower"
     },
   "repository": {

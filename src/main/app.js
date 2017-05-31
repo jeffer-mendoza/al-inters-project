@@ -24,9 +24,12 @@ define([ 'angular',
          'tmdb/services/TMDBAPIService',
          'tmdb/partials/home/HomeController',
          'tmdb/partials/movie/MovieController',
-         'tmdb/directives/popularMovies/PopularMovies'
+         'tmdb/directives/popularMovies/PopularMovies',
+         'tmdb/directives/movieTile/MovieTile'
         ],
-    function( angular, config, $resource, $location, LocalStorageModule, TMDBAPIService, HomeController, MovieController, PopularMoviesDirective) {
+    function( angular, config, $resource, $location, LocalStorageModule,
+    TMDBAPIService, HomeController, MovieController, PopularMoviesDirective,
+    MovieTileDirective) {
     	"use strict";
 
         /** @constructs app */
@@ -47,6 +50,8 @@ define([ 'angular',
         app.controller( "MovieController", MovieController);
         
         app.directive("popularMovies", PopularMoviesDirective);
+        app.directive("movieTile", MovieTileDirective);
+
         
         app.config(['$routeProvider', function($routeProvider) {
             $routeProvider.when( '/', { templateUrl: '/tmdb/partials/home/home.html', controller: 'HomeController' } );

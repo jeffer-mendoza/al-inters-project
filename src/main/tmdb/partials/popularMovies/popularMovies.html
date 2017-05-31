@@ -1,16 +1,7 @@
-<!--<h1 class="text-center"> {{ view.title }} </h1>-->
 <div class="row">
-   <a> {{movies.page }} </a>
-
-    <div class="col-lg-3" style="margin-bottom: 50px" ng-repeat="movie in movies.results">
+    <div class="col-lg-3 col-md-6 col-xs-12" style="margin-bottom: 50px" ng-repeat="movie in movies.results | orderBy:title">
         <div class="row text-center">
-            <div class="col-lg-12 text-center">
-                <img class="text-center" width="150" height="225" src="{{view.images}}{{ movie.poster_path}}"
-                     title="{{ movie.overview}}"/>
-            </div>
-            <div class="col-lg-12 text-center">
-                <strong>{{ movie.title}}</strong>
-            </div>
+            <movie-tile ng-model="movie"/>
         </div>
     </div>
     <nav aria-label="Page navigation">

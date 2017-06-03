@@ -49,17 +49,40 @@ define(['angular',
                 });
 
             };
-            
+
+            /*this.Latest = function () {
+
+                return this.GetCachedService("latest", function () {
+                    var serviceVersion = "3";
+                    var serviceBase = this._normalizeEndpoint(serviceVersion);
+
+                    var movieList = function () {
+
+                        var uri = serviceBase.url + '/discover/movie/latest?api_key=' + serviceBase.apiKey;
+
+                        return $http.get(uri);
+                    };
+
+
+                    return {
+                        latest: {
+                            movies: movieList
+                        }
+                    };
+                });
+
+            };*/
+
             /* http://docs.themoviedb.apiary.io/reference/movies */
             this.Movie = function () {
-                return this.GetCachedService( "movie", function () {
+                return this.GetCachedService("movie", function () {
                     var serviceVersion = "3";
-                    var serviceBase    = this._normalizeEndpoint( serviceVersion, "movie" );
+                    var serviceBase = this._normalizeEndpoint(serviceVersion, "movie");
 
                     /* http://docs.themoviedb.apiary.io/reference/movies/movieid */
                     var getMovie = function (id) {
                         var uri = serviceBase.url + '/movie/' + id + '?api_key=' + serviceBase.apiKey + '&append_to_response=alternative_titles,credits,releases,videos,similar,reviews,images';
-                        return $http.get( uri );
+                        return $http.get(uri);
                     };
 
                     return {
@@ -91,7 +114,7 @@ define(['angular',
             /**
              * Define the url for access to service tmdb.org, adding the user apikey
              **/
-            this._normalizeEndpoint = function(version) {
+            this._normalizeEndpoint = function (version) {
                 var config = angular.module("config");
 
                 return {
@@ -101,7 +124,7 @@ define(['angular',
             };
         };
 
-        TMDBAPIService.$inject = ['$rootScope', '$http', '$timeout', '$resource',  '$location'];
+        TMDBAPIService.$inject = ['$rootScope', '$http', '$timeout', '$resource', '$location'];
 
         return TMDBAPIService;
     }

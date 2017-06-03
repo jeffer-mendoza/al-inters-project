@@ -16,16 +16,16 @@
  */
 
 define( [ 'angular',
-          'config/config'],
+          'config/config',
+          'tmdb/services/TMDBAPIService'],
     function( angular, config ) {
         "use strict";
 
-        var HomeController = function($scope) {
+        var HomeController = function($scope, TMDBAPIService) {
 
-            $scope.title = 'MovieTv is the best webapp to watch movies';
         };
 
-        HomeController.$inject = [ '$scope'];
+        HomeController.$inject = [ '$scope', 'TMDBAPIService'];
 
         return HomeController;
     }

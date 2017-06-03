@@ -14,7 +14,7 @@
 
 <body>
 	<div class="wrapper">
-		<nav class="navbar navbar-default">
+		<nav class="navbar navbar-dark">
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
@@ -38,7 +38,7 @@
 						<li class="active"><a href="/#!/movie">Movies</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a target="_blank" href="https://developers.themoviedb.org">themoviedb</a></li>
+						<li><a target="_blank" href="https://developers.themoviedb.org/3/authentication">themoviedb</a></li>
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
@@ -51,7 +51,9 @@
 
 				<div protected-content>
 
-					<ng-view></ng-view>
+					<ng-view>
+
+					</ng-view>
 				</div>
 			</div>
 			<!-- END PAGE CONTENT -->
@@ -61,6 +63,23 @@
 	<!-- Default JS (DO NOT TOUCH) -->
 	<script src="/vendor/jquery/dist/jquery.min.js?bust=release.version"></script>
 	<script src="/vendor/bootstrap/dist/js/bootstrap.min.js?bust=release.version"></script>
+
+<style>
+	.navbar-dark{
+		background-color: #1D1F22;
+		color: white;
+		font: 1em sans-serif;
+	}
+
+	.navbar-dark a{
+		color: white;
+	}
+
+	.nav li a:focus, .nav li a:hover{
+		background-color: #2C2A2E;
+	}
+
+</style>
 </body>
 
 </html>

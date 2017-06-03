@@ -1,8 +1,11 @@
 <div>
 <div class="col-lg-12 text-center">
-   <img class="text-center" width="150" height="225" src="{{view.images}}{{ movie.poster_path}}"/>
+    <a href="#!/movie-detail/{{movie.id}}" title="{{movie.title}}">
+   <img ng-if="movie.poster_path" class="text-center img-responsive"  src="{{view.images}}{{ movie.poster_path}}"/>
+   <img ng-if="!movie.poster_path" class="text-center img-responsive" src="http://media.comicbook.com/files/img/default-movie.png" />
+   </a>
 </div>
-<div class="col-lg-12 text-center">
-    <strong>{{ movie.title }}</strong>
+
+<div class="row">
 </div>
 </div>

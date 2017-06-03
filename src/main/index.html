@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8" />
-<title>MovieTv</title>
 
-<!-- Default Styles (DO NOT TOUCH) -->
-<link rel="stylesheet" type="text/css" href="/css/app.css">
-<link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.min.css">
-<!-- RequireJS // -->
-<script src="/vendor/requirejs/require.js" data-main="main"></script>
+<head>
+	<meta charset="utf-8" />
+	<title>MovieTv</title>
+
+	<!-- Default Styles (DO NOT TOUCH) -->
+	<link rel="stylesheet" type="text/css" href="/css/app.css">
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+	<!-- RequireJS // -->
+	<script src="/vendor/requirejs/require.js" data-main="main"></script>
 </head>
+
 <body>
 	<div class="wrapper">
 		<nav class="navbar navbar-default">
@@ -25,16 +27,23 @@
 					<a class="navbar-brand" href="#">MovieTv</a>
 				</div>
 
+				<form class="navbar-form navbar-right">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+				</form>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="/#!/movie">Movies</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a target="_blank"  href="https://developers.themoviedb.org">themoviedb</a></li>
+						<li><a target="_blank" href="https://developers.themoviedb.org">themoviedb</a></li>
 					</ul>
-				</div><!-- /.navbar-collapse -->
-			</div><!-- /.container-fluid -->
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
 		</nav>
 		<div class="contain">
 			<!-- BEGIN PAGE CONTENT -->
@@ -53,4 +62,5 @@
 	<script src="/vendor/jquery/dist/jquery.min.js?bust=release.version"></script>
 	<script src="/vendor/bootstrap/dist/js/bootstrap.min.js?bust=release.version"></script>
 </body>
+
 </html>

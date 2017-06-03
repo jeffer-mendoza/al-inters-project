@@ -49,6 +49,26 @@ define(['angular',
                 });
 
             };
+            
+            /* http://docs.themoviedb.apiary.io/reference/movies */
+            this.Movie = function () {
+                return this.GetCachedService( "movie", function () {
+                    var serviceVersion = "3";
+                    var serviceBase    = this._normalizeEndpoint( serviceVersion, "movie" );
+
+                    /* http://docs.themoviedb.apiary.io/reference/movies/movieid */
+                    var getMovie = function (id) {
+                        var uri = serviceBase.url + '/movie/' + id + '?api_key=' + serviceBase.apiKey + '&append_to_response=alternative_titles,credits,releases,videos,similar,reviews,images';
+                        return $http.get( uri );
+                    };
+
+                    return {
+                        movie: {
+                            movie: getMovie
+                        }
+                    };
+                });
+            };
 
 
             this.GetCachedService = function (serviceName, instantiateFunction) {

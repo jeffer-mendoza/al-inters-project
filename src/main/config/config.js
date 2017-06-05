@@ -9,7 +9,7 @@ define( [ 'angular' ],
              * ngStart's src/main/main.js file should include the appropriate requirejs configuration to
              * facilitate the inclusion for objects stored in idiosyncratic locations.
              */
-            config.standardRequireModules = [   'angular', 'ui.bootstrap', 'ngRoute',  'app', 'LocalStorageModule', 'bootstrapSelect' ];
+            config.standardRequireModules = [   'angular', 'ui.bootstrap', 'ngRoute',  'app', 'LocalStorageModule' ];
 
             /**
              * These are the angular modules that every application module should require in order to execute.
@@ -77,17 +77,14 @@ define( [ 'angular' ],
                     'LocalStorageModule': 'vendor/angular-local-storage/dist/angular-local-storage.min',
                     'ngResource': 'vendor/angular-resource/angular-resource.min',
                     'ngRoute': 'vendor/angular-route/angular-route.min',
-                    'ui.bootstrap': 'vendor/angular-bootstrap/ui-bootstrap-tpls.min',
-                    'bootstrapSelect': "vendor/bootstrap-select/js/bootstrap-select"
-
+                    'ui.bootstrap': 'vendor/angular-bootstrap/ui-bootstrap-tpls.min'
                 },
                 shim: {
                     'angular': { deps: [], exports: 'angular' },
                     'ui.bootstrap': {deps: [ "angular" ] },
                     'LocalStorageModule': {deps: ['angular']},
                     'ngResource': {deps: ['angular']},
-                    'ngRoute': {deps: ['angular']},
-                    'bootstrapSelect': {deps: ['angular']}
+                    'ngRoute': {deps: ['angular']}
                 }
             };
 

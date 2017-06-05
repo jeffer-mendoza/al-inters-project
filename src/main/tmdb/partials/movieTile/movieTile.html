@@ -1,30 +1,34 @@
 <div>
     <div ng-if="compact">
         <div class="col-lg-12 text-center">
-            <a href="#!/movie-detail/{{movie.id}}" title="{{movie.title}}">
-                <img ng-if="movie.poster_path" class="text-center" width="{{ size.width }}" height="{{ size.height }}"
-                     src="{{view.images}}{{ movie.poster_path}}"/>
-                <img ng-if="!movie.poster_path" class="text-center" width="{{ size.width }}" height="{{ size.height }}"
-                     src="http://media.comicbook.com/files/img/default-movie.png"/>
+            <a href="#!/movie-detail/{{movie.id}}" title="{{movie.original_title}}">
+                <img ng-if="movie.poster_path" class="text-center" width="{{ size.width }}" height="{{ size.height }}" src="{{view.images}}{{ movie.poster_path}}" />
+                <img ng-if="!movie.poster_path" class="text-center" width="{{ size.width }}" height="{{ size.height }}" src="/assets/default-movie.png" />
             </a>
+            <div style="font-size:1em; color: gray">
+                <span class="glyphicon glyphicon-star" aria-hidden="true"> </span> {{ movie.vote_average }} <br>
+            </div>
         </div>
     </div>
 
     <div ng-if="!compact">
         <div class="col-lg-12 text-center">
-            <a href="#!/movie-detail/{{movie.id}}" title="{{movie.title}}">
+            <a href="#!/movie-detail/{{movie.id}}" title="{{movie.original_title}}">
                 <div class="row thumbnail" style="margin-right: 5px">
-                    <div class="col-lg-6">
-                        <img ng-if="movie.poster_path" class="text-left" width="{{ size.width }}"
-                             height="{{ size.height }}"
-                             src="{{view.images}}{{ movie.poster_path}}"/>
-                        <img ng-if="!movie.poster_path" class="text-left" width="{{ size.width }}"
-                             height="{{ size.height }}"
-                             src="http://media.comicbook.com/files/img/default-movie.png"/>
+                    <div class="col-lg-6 col-md-6 col-xs-6">
+                        <img ng-if="movie.poster_path" class="text-left" width="{{ size.width }}" height="{{ size.height }}" src="{{view.images}}{{ movie.poster_path}}" />
+                        <img ng-if="!movie.poster_path" class="text-left" width="{{ size.width }}" height="{{ size.height }}" src="/assets/default-movie.png" />
                     </div>
-                    <div class="col-lg-6 text-justify">
-                        <h3>{{ movie.title}}</h3>
-                        {{ movie.overview }}
+                    <div class="col-lg-6 col-md-6 col-xs-6" style="position: relative; min-height: {{ size.height }}px">
+                        <h3 style="color: black">{{ movie.title }}</h3>
+                        <p style="color: gray" class="text-justify">{{ movie.overview }}</p>
+
+                        <div style="position: absolute; bottom: 0px; font-size:1em; color: gray">
+                            <span class="glyphicon glyphicon-star" aria-hidden="true"> </span> {{ movie.vote_average }}
+                        </div>
+                        <div style="position: absolute; bottom: 0px; right: 0px; font-size:1em; color: gray">
+                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"> </span> {{ movie.release_date | date:'yyyy' }}
+                        </div>
                     </div>
                 </div>
             </a>

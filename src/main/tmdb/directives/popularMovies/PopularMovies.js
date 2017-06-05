@@ -16,21 +16,20 @@
  */
 
 define( [ 'angular',
-          'tmdb/partials/movie/MovieController' ], 
-    function( angular, MovieController ) {
+          'tmdb/partials/popularMovies/PopularMoviesController' ], 
+    function( angular, PopularMoviesController ) {
         "use strict";
 
         return function() {
             return {
                 transclude: true,
                 replace: true,
-               // controller: MovieController,
+                controller: PopularMoviesController,
                 templateUrl: '/tmdb/partials/popularMovies/popularMovies.html',
                 restrict: 'E',
                 scope: {
                     movies: '=',
-                    size: '=',
-                    compact: '='
+                    size: '='
                 }
             };
         };

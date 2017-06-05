@@ -31,17 +31,7 @@ define(['angular', 'config/config', 'tmdb/services/TMDBAPIService'],
 
             $scope.size = {
                 width: "200",
-                height: "300"
-            };
-
-            $scope.compact = true;
-
-            $scope.viewCompact= function(){
-                $scope.compact = true;
-            };
-
-            $scope.viewPost = function(){
-                $scope.compact = false;
+                height: "270"
             };
 
             $scope.view = {
@@ -62,6 +52,7 @@ define(['angular', 'config/config', 'tmdb/services/TMDBAPIService'],
             };
 
             $scope.movieUpdate();
+         
 
             var apiGenres = TMDBAPIService.Genres();
             apiGenres.genres.genresList().then(function (response) {

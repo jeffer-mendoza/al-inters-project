@@ -1,18 +1,32 @@
 <div class="container">
+    <div class="row">
+        <div class="col-lg-10"></div>
+        <div class="col-lg-2">
+            <div class="dropdown text-right">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                View
+                <span class="caret"></span>
+            </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a ng-click="sendViewCompact(true)">Compact</a></li>
+                    <li><a ng-click="sendViewCompact(false)">Posts</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr>
     <div class="row" ng-if="compact">
-        <div class="col-lg-3 col-md-6 col-xs-12" style="margin-bottom: 50px"
-             ng-repeat="movie in movies.results | orderBy:'title'">
+        <div class="col-lg-3 col-md-6 col-xs-6" style="margin-bottom: 50px" ng-repeat="movie in movies.results | orderBy:'title'">
             <div class="row text-center">
-                <movie-tile movie="movie" size="size" compact="compact"/>
+                <movie-tile movie="movie" size="size" compact="compact" />
             </div>
         </div>
     </div>
 
     <div class="row" ng-if="!compact">
-        <div class="col-lg-6 col-md-6 col-xs-12" style="margin-bottom: 50px"
-             ng-repeat="movie in movies.results | orderBy:'title'">
+        <div class="col-lg-6 col-md-12 col-xs-12" style="margin-bottom: 50px" ng-repeat="movie in movies.results | orderBy:'title'">
             <div class="row text-center">
-                <movie-tile movie="movie" size="size" compact="compact"/>
+                <movie-tile movie="movie" size="size" compact="compact" />
             </div>
         </div>
     </div>

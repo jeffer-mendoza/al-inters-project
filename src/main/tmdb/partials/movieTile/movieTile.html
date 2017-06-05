@@ -5,9 +5,6 @@
                 <img ng-if="movie.poster_path" class="text-center" width="{{ size.width }}" height="{{ size.height }}" src="{{view.images}}{{ movie.poster_path}}" />
                 <img ng-if="!movie.poster_path" class="text-center" width="{{ size.width }}" height="{{ size.height }}" src="/assets/default-movie.png" />
             </a>
-            <div style="font-size:1em; color: gray">
-                <span class="glyphicon glyphicon-star" aria-hidden="true"> </span> {{ movie.vote_average }} <br>
-            </div>
         </div>
     </div>
 

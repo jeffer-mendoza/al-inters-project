@@ -19,6 +19,9 @@
         <div class="col-lg-3 col-md-6 col-xs-6" style="margin-bottom: 50px" ng-repeat="movie in movies.results | orderBy:'title'">
             <div class="row text-center">
                 <movie-tile movie="movie" size="size" compact="compact" />
+                <div style="font-size:1em; color: gray">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"> </span> {{ movie.vote_average }} <br>
+                </div>
             </div>
         </div>
     </div>

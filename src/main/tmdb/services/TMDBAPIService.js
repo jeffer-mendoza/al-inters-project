@@ -31,12 +31,19 @@ define(['angular',
                     var serviceVersion = "3";
                     var serviceBase = this._normalizeEndpoint(serviceVersion);
 
-                    var movieList = function (page) {
+                    var movieList = function (year, gender, page) {
                         if (page === undefined) {
                             page = 1;
                         }
+                        if (gender === undefined) {
+                            gender = 28;
+                        }
+                        if (year === undefined) {
+                             year = 2016;
+                        }
 
-                        var uri = serviceBase.url + '/discover/movie?page=' + page + '&api_key=' + serviceBase.apiKey;
+
+                        var uri = serviceBase.url + '/discover/movie?page=' + page + '&primary_release_year='+ year + '&with_genres='+ gender +'&api_key=' + serviceBase.apiKey;
 
                         return $http.get(uri);
                     };
@@ -77,7 +84,7 @@ define(['angular',
             this.Movie = function () {
                 return this.GetCachedService("movie", function () {
                     var serviceVersion = "3";
-                    var serviceBase = this._normalizeEndpoint(serviceVersion, "movie");
+                    var serviceBase = this._normalizeEndpoint(serviceVersion);
 
                     /* http://docs.themoviedb.apiary.io/reference/movies/movieid */
                     var getMovie = function (id) {
@@ -90,6 +97,26 @@ define(['angular',
                             movie: getMovie
                         }
                     };
+                });
+            };
+
+            this.Genres = function(){
+                return this.GetCachedService('genres', function(){
+                    var serviceVersion = "3";
+                    var serviceBase = this._normalizeEndpoint(serviceVersion);
+
+                    var getGenres = function(){
+                        var uri = serviceBase.url + "/genre/movie/list?api_key=" + serviceBase.apiKey;
+
+                        return $http.get(uri);
+                    };
+
+
+                    return {
+                        genres: {
+                            genresList: getGenres
+                        }
+                    }
                 });
             };
 

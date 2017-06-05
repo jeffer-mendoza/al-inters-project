@@ -59,7 +59,7 @@ define([ 'angular',
         
         app.config(['$routeProvider', function($routeProvider) {
             $routeProvider.when( '/', { templateUrl: '/tmdb/partials/home/home.html', controller: 'HomeController' } );
-            $routeProvider.when('/movie/:page', { templateUrl: '/tmdb/partials/movie/list.html', controller: 'MovieController'});
+            $routeProvider.when('/movie', { templateUrl: '/tmdb/partials/movie/movie.html', controller: 'MovieController'});
             $routeProvider.when('/movie-detail/:id', { templateUrl: '/tmdb/partials/movieDetail/movieDetail.html', controller: 'MovieDetailController'});
             $routeProvider.otherwise( {
                 template: function() {

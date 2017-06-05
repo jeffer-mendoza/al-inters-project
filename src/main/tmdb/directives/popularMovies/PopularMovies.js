@@ -28,7 +28,8 @@ define( [ 'angular',
                 templateUrl: '/tmdb/partials/popularMovies/popularMovies.html',
                 restrict: 'E',
                 scope: {
-                    movies: '='
+                    movies: '=',
+                    size: '='
                 }
             };
         };

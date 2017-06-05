@@ -29,7 +29,8 @@ define( [ 'angular',
                 restrict: 'E',
                 scope: {
                     movie: '=',
-                    size: '='
+                    size: '=',
+                    compact: '='
                 }
             };
         };

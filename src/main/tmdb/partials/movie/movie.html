@@ -31,12 +31,12 @@
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a href="#">Compact</a></li>
-                <li><a href="#">Posts</a></li>
+                <li><a ng-click="viewCompact()">Compact</a></li>
+                <li><a ng-click="viewPost()">Posts</a></li>
             </ul>
         </div>
     </div>
 
 </div>
 <hr>
-<popular-movies movies="view.movies" size="size"/>
+<popular-movies movies="view.movies" size="size" compact="compact"/>

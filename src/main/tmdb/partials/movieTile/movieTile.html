@@ -1,11 +1,33 @@
 <div>
-<div class="col-lg-12 text-center">
-    <a href="#!/movie-detail/{{movie.id}}" title="{{movie.title}}">
-   <img ng-if="movie.poster_path" class="text-center" width="{{ size.width }}" height="{{ size.height }}"  src="{{view.images}}{{ movie.poster_path}}"/>
-   <img ng-if="!movie.poster_path" class="text-center" width="{{ size.width }}" height="{{ size.height }}" src="http://media.comicbook.com/files/img/default-movie.png" />
-   </a>
-</div>
+    <div ng-if="compact">
+        <div class="col-lg-12 text-center">
+            <a href="#!/movie-detail/{{movie.id}}" title="{{movie.title}}">
+                <img ng-if="movie.poster_path" class="text-center" width="{{ size.width }}" height="{{ size.height }}"
+                     src="{{view.images}}{{ movie.poster_path}}"/>
+                <img ng-if="!movie.poster_path" class="text-center" width="{{ size.width }}" height="{{ size.height }}"
+                     src="http://media.comicbook.com/files/img/default-movie.png"/>
+            </a>
+        </div>
+    </div>
 
-<div class="row">
-</div>
+    <div ng-if="!compact">
+        <div class="col-lg-12 text-center">
+            <a href="#!/movie-detail/{{movie.id}}" title="{{movie.title}}">
+                <div class="row thumbnail" style="margin-right: 5px">
+                    <div class="col-lg-6">
+                        <img ng-if="movie.poster_path" class="text-left" width="{{ size.width }}"
+                             height="{{ size.height }}"
+                             src="{{view.images}}{{ movie.poster_path}}"/>
+                        <img ng-if="!movie.poster_path" class="text-left" width="{{ size.width }}"
+                             height="{{ size.height }}"
+                             src="http://media.comicbook.com/files/img/default-movie.png"/>
+                    </div>
+                    <div class="col-lg-6 text-justify">
+                        <h3>{{ movie.title}}</h3>
+                        {{ movie.overview }}
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
 </div>

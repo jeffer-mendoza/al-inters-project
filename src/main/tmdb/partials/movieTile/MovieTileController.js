@@ -6,6 +6,7 @@ define(['angular', 'config/config'],
             $scope.view = {
                 images: config.apiImg
             };
+
         };
         
 

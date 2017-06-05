@@ -34,6 +34,16 @@ define(['angular', 'config/config', 'tmdb/services/TMDBAPIService'],
                 height: "300"
             };
 
+            $scope.compact = true;
+
+            $scope.viewCompact= function(){
+                $scope.compact = true;
+            };
+
+            $scope.viewPost = function(){
+                $scope.compact = false;
+            };
+
             $scope.view = {
                 movies: [],
                 year: 2017,

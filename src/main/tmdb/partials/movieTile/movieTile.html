@@ -1,7 +1,7 @@
 <div>
     <div ng-if="compact">
         <div class="col-lg-12 text-center">
-            <a href="#!/movie-detail/{{movie.id}}" title="{{movie.original_title}}">
+            <a href="#/movie-detail/{{movie.id}}" title="{{movie.original_title}}">
                 <img ng-if="movie.poster_path" class="text-center" width="{{ size.width }}" height="{{ size.height }}" src="{{view.images}}{{ movie.poster_path}}" />
                 <img ng-if="!movie.poster_path" class="text-center" width="{{ size.width }}" height="{{ size.height }}" src="/assets/default-movie.png" />
             </a>

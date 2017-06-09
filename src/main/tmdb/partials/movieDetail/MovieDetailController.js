@@ -1,8 +1,10 @@
-define(['angular', 'ngRoute', 'config/config', 'ngSanitize', 'tmdb/services/TMDBAPIService'],
+define(['angular', 'ngRoute', 'config/config', 'tmdb/services/TMDBAPIService'],
 
-    function(angular, $routeParams, config, $sce, TMDBAPIService) {
+    function(angular, $routeParams, config, TMDBAPIService) {
         "use strict";
-        var MovieDetailController = function($scope, TMDBAPIService, $routeParams, $sce) {
+        var MovieDetailController = function($scope, TMDBAPIService, $routeParams) {
+
+            var self = this;
             $scope.size = {
                 width: "300",
                 height: "400"
@@ -13,14 +15,17 @@ define(['angular', 'ngRoute', 'config/config', 'ngSanitize', 'tmdb/services/TMDB
                 height: "240"
             };
 
+
+            var internal = self.internal = {
+                loadData: function(response) {
+                    $scope.movie = response.data;
+                    $scope.url = config.youtubeUrl + $scope.movie.videos.results[0].key;
+                }
+            };
+            
             var api = TMDBAPIService.Movie();
             api.movie.movie($routeParams.id).then(function(response) {
-                console.log(response.data);
-                $scope.movie = response.data;
-                $scope.url = config.youtubeUrl + $scope.movie.videos.results[0].key;
-                //$scope.url = "hola";
-                //(config.youtubeUrl + $scope.movie.videos.results[0].key);
-
+                  internal.loadData(response);
             });
 
             $scope.score = function(val) {

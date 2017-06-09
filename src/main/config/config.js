@@ -9,12 +9,12 @@ define(['angular'],
          * ngStart's src/main/main.js file should include the appropriate requirejs configuration to
          * facilitate the inclusion for objects stored in idiosyncratic locations.
          */
-        config.standardRequireModules = ['angular', 'ui.bootstrap', 'ngRoute', 'app', 'LocalStorageModule', 'ngSanitize'];
+        config.standardRequireModules = ['angular','ui.bootstrap', 'ngRoute', 'app'];
 
         /**
          * These are the angular modules that every application module should require in order to execute.
          */
-        config.standardAngularModules = ['ngRoute', 'ngResource', 'LocalStorageModule', 'config'];
+        config.standardAngularModules = ['ngRoute', 'ngResource', 'config'];
 
         /**
          * Development or production
@@ -79,12 +79,10 @@ define(['angular'],
             baseUrl: "/",
             paths: {
                 'angular': 'vendor/angular/angular.min',
-                'LocalStorageModule': 'vendor/angular-local-storage/dist/angular-local-storage.min',
+                //'LocalStorageModule': 'vendor/angular-local-storage/dist/angular-local-storage.min',
                 'ngResource': 'vendor/angular-resource/angular-resource.min',
                 'ngRoute': 'vendor/angular-route/angular-route.min',
-                'ui.bootstrap': 'vendor/angular-bootstrap/ui-bootstrap-tpls.min',
-                'ngSanitize': 'vendor/angular-sanitize/angular-sanitize.min'
-
+                'ui.bootstrap': 'vendor/angular-bootstrap/ui-bootstrap-tpls.min'
             },
             shim: {
                 'angular': {
@@ -94,16 +92,11 @@ define(['angular'],
                 'ui.bootstrap': {
                     deps: ["angular"]
                 },
-                'LocalStorageModule': {
-                    deps: ['angular']
-                },
+                
                 'ngResource': {
                     deps: ['angular']
                 },
                 'ngRoute': {
-                    deps: ['angular']
-                },
-                'ngSanitize': {
                     deps: ['angular']
                 }
 

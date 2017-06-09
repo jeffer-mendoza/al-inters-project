@@ -20,7 +20,7 @@
  */
 define(['angular',
         'config/config',
-        'ngRoute', 'ngResource', 'LocalStorageModule',
+        'ngRoute', 'ngResource',
         'tmdb/services/TMDBAPIService',
         'tmdb/partials/home/HomeController',
         'tmdb/partials/movie/MovieController',
@@ -29,13 +29,13 @@ define(['angular',
         'tmdb/directives/movieTile/MovieTile',
         'tmdb/directives/score/Score'
     ],
-    function(angular, config, $resource, $location, LocalStorageModule,
+    function(angular, config, $resource, $location,
         TMDBAPIService, HomeController, MovieController, MovieDetailController,
         PopularMoviesDirective, MovieTileDirective, ScoreDirective) {
         "use strict";
 
         /** @constructs app */
-        var angularModules = config.standardAngularModules.concat('LocalStorageModule');
+        var angularModules = config.standardAngularModules;
 
         /** @constructs app */
         var app = angular.module("app", angularModules);

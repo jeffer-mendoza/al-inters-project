@@ -18,15 +18,15 @@ require(
         }
 
         allTestFiles.push("app");
-        allTestFiles.push("ngAnimate");
-        allTestFiles.push("ui.bootstrap");
-        allTestFiles.push("LocalStorageModule");
-        allTestFiles.push("ui.select");
+        //allTestFiles.push("ngAnimate");
+        //allTestFiles.push("ui.bootstrap");
+        //allTestFiles.push("LocalStorageModule");
+        //allTestFiles.push("ui.select");
         allTestFiles.push("angular-mocks");
         allTestFiles.push("ngResource");
         allTestFiles.push("ngRoute");
-        allTestFiles.push("ngSanitize");
-        allTestFiles.push("gettext");
+        //allTestFiles.push("ngSanitize");
+        //allTestFiles.push("gettext");
 
         var shouldIncludeTest = function( candidateFile ) {
             if ( excludeTests.length + includeTests.length === 0 ) {
@@ -67,30 +67,30 @@ require(
             baseUrl:'/base/src/main',
             paths:{
                 'angular': '/base/src/main/vendor/angular/angular',
-                'ngAnimate': '/base/src/main/vendor/angular-animate/angular-animate.min',
-                'ui.bootstrap': '/base/src/main/vendor/angular-bootstrap/ui-bootstrap.min',
-                'ui.select': '/base/src/main/vendor/angular-ui-select/dist/select',
-                'LocalStorageModule': '/base/src/main/vendor/angular-local-storage/dist/angular-local-storage.min',
-                'gettext': '/base/src/main/vendor/angular-gettext/dist/angular-gettext.min',
+                //'ngAnimate': '/base/src/main/vendor/angular-animate/angular-animate.min',
+                //'ui.bootstrap': '/base/src/main/vendor/angular-bootstrap/ui-bootstrap.min',
+                //'ui.select': '/base/src/main/vendor/angular-ui-select/dist/select',
+                //'LocalStorageModule': '/base/src/main/vendor/angular-local-storage/dist/angular-local-storage.min',
+                //'gettext': '/base/src/main/vendor/angular-gettext/dist/angular-gettext.min',
                 'angular-mocks': '/base/src/main/vendor/angular-mocks/angular-mocks',
                 'ngResource': '/base/src/main/vendor/angular-resource/angular-resource.min',
-                'ngRoute': '/base/src/main/vendor/angular-route/angular-route.min',
-                'ngSanitize': '/base/src/main/vendor/angular-sanitize/angular-sanitize.min',
-                'angular-ui-utils': '/base/src/main/vendor/angular-ui-utils/ui-utils.min',
-                'translations': '/base/src/main/translations'
+                'ngRoute': '/base/src/main/vendor/angular-route/angular-route.min'
+                //'ngSanitize': '/base/src/main/vendor/angular-sanitize/angular-sanitize.min',
+                //'angular-ui-utils': '/base/src/main/vendor/angular-ui-utils/ui-utils.min',
+                //'translations': '/base/src/main/translations'
             },
             shim:{
                 'angular': { deps: [], exports: 'angular' },
-                'ngAnimate': {deps: ['angular']},
-                'ui.bootstrap': {deps: ['angular']},
-                'LocalStorageModule': {deps: ['angular']},
-                'ui.select': {deps: ['angular']},
+                //'ngAnimate': {deps: ['angular']},
+                //'ui.bootstrap': {deps: ['angular']},
+                //'LocalStorageModule': {deps: ['angular']},
+                //'ui.select': {deps: ['angular']},
                 'angular-mocks': {deps: ['angular']},
                 'ngResource': {deps: ['angular']},
-                'ngRoute': {deps: ['angular']},
-                'ngSanitize': {deps: ['angular']},
-                'angular-ui-utils': {deps: ['angular']},
-                'gettext': {deps: ['angular']}
+                'ngRoute': {deps: ['angular']}
+                //'ngSanitize': {deps: ['angular']},
+                //'angular-ui-utils': {deps: ['angular']},
+                //'gettext': {deps: ['angular']}
             }
         }, allTestFiles, function () {
             console.log("Starting Karma test suite!" );

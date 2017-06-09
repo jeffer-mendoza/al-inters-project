@@ -18,11 +18,10 @@
 define(['angular',
         'ngRoute',
         'ngResource',
-        'LocalStorageModule',
         'config/config'],
     function (angular) {
         "use strict";
-        var TMDBAPIService = function ($rootScope, $http, $timeout, $resource, LocalStorageModule, $location) {
+        var TMDBAPIService = function ($rootScope, $http, $timeout, $resource, $location) {
             this.ServiceCache = [];
 
             this.Discover = function () {

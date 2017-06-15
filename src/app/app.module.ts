@@ -15,7 +15,8 @@ import { DashBoardComponent } from './dashboard.component/dashboard.component';
     RouterModule.forRoot([
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashBoardComponent },
-      { path: 'heroes', component: HeroComponent }
+      { path: 'heroes', component: HeroComponent },
+      { path: 'detail/:id', component: HeroDetailComponent}
     ])
   ],
   declarations: [

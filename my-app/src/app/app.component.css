@@ -1,0 +1,14 @@
+.navbar-dark {
+ background-color: #1D1F22;
+ color: white;
+ font: 1em sans-serif;
+}
+
+.navbar-dark a {
+ color: white;
+}
+
+.nav li a:focus,
+.nav li a:hover {
+ background-color: #2C2A2E;
+}

@@ -1,0 +1,43 @@
+<div *ngIf="viewMode">
+    <div class="col-lg-3 col-md-6 col-xs-6" style="margin-bottom: 50px" ng-repeat="movie in movies.results | orderBy:'title'">
+        <div class="row text-center">
+            <div class="col-lg-12 text-center">
+                <a href="#!/movie-detail/{{movie.id}}" title="{{movie.original_title}}">
+                    <img *ngIf="movie.poster_path" class="text-center" width="{{ size.width }}" height="{{ size.height }}" src="{{apiImg}}{{ movie.poster_path}}" />
+                    <img *ngIf="!movie.poster_path" class="text-center" width="{{ size.width }}" height="{{ size.height }}" src="http://media.comicbook.com/files/img/default-movie.png" />
+                </a>
+            </div>
+            <div style="font-size:1em; color: gray">
+                <span class="glyphicon glyphicon-star" aria-hidden="true"> </span> {{ movie.vote_average }} <br>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!viewMode">
+    <div class="col-lg-6 col-md-12 col-xs-12" style="margin-bottom: 50px" ng-repeat="movie in movies.results | orderBy:'title'">
+        <div class="row text-center">
+            <div class="col-lg-12 text-center">
+                <a href="#!/movie-detail/{{movie.id}}" title="{{movie.original_title}}">
+                    <div class="row thumbnail" style="margin-right: 5px">
+                        <div class="col-lg-6 col-md-6 col-xs-6">
+                            <img *ngIf="movie.poster_path" class="text-left" width="{{ size.width }}" height="{{ size.height }}" src="{{apiImg}}{{ movie.poster_path}}" />
+                            <img *ngIf="!movie.poster_path" class="text-left" width="{{ size.width }}" height="{{ size.height }}" src="http://media.comicbook.com/files/img/default-movie.png" />
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-xs-6" style="position: relative; min-height: 250px">
+                            <h3 style="color: black">{{ movie.title }}</h3>
+                            <p style="color: gray" class="text-justify">{{ movie.overview }}</p>
+
+                            <div style="position: absolute; bottom: 0px; font-size:1em; color: gray">
+                                <span class="glyphicon glyphicon-star" aria-hidden="true"> </span> {{ movie.vote_average }}
+                            </div>
+                            <div style="position: absolute; bottom: 0px; right: 0px; font-size:1em; color: gray">
+                                <span class="glyphicon glyphicon-calendar" aria-hidden="true"> </span> {{ movie.release_date | date:'yyyy' }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

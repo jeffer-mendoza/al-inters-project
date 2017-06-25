@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnChanges, Input } from '@angular/core';
 
 import { Movie } from '../model/movie';
 import { settings } from '../settings';
@@ -8,34 +8,35 @@ import { settings } from '../settings';
   templateUrl: './movie-tile.component.html',
   styleUrls: ['./movie-tile.component.css']
 })
-export class MovieTileComponent implements OnInit {
-  
+export class MovieTileComponent implements OnChanges {
+
   @Input() movie: Movie;
   @Input() size;
   @Input() viewMode;
   apiImg = settings.apiImg;
-  
-  constructor() { 
-  
+
+  constructor() {
+
   }
-           
-  ngOnInit() {
-    
+
+  /**
+   * Method implemented for listen changes of viewMode
+   */
+  ngOnChanges(){
     //Only for view not compact apply this conditional
     if(!this.viewMode){
-      
+
       //Limit length of property overview for show in view
       if(this.movie.overview.length > 200){
-            this.movie.overview = this.movie.overview.substring(0, 200) + '...';
-            
+        this.movie.overview = this.movie.overview.substring(0, 200) + '...';
       }
-           
-      //Limit length of property overview for show in view      
+
+      //Limit length of property overview for show in view
       if(this.movie.title.length > 30){
-            this.movie.title = this.movie.title.substring(0, 30) + '...';
+        this.movie.title = this.movie.title.substring(0, 30) + '...';
       }
     }
   }
-  
+
 
 }

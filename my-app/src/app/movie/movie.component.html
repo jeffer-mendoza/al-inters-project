@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12 text-center">
             <div class="row">
-                
+
                 <!-- filter for find movie by year -->
                 <div class="col-xs-3">
                     <label>Year</label>
@@ -12,18 +12,18 @@
                     </select>
                     </div>
                 </div>
-                
+
                 <!-- filter for find movie by genre -->
                 <div class="col-xs-3">
                     <label>Gender</label>
                     <div class="form-group">
-                        <select class="form-control" ng-model="view.genre" (change)="changeGenre()">
-                        <option *ngFor="let genre of genres" value="{{ genre.id }}">{{ genre.name }}</option>
+                        <select #genre id="genre" class="form-control"  (change)="changeGenre(genre.value)">
+                        <option *ngFor="let genre of genresSelect" value="{{ genre.id }}">{{ genre.name }}</option>
                     </select>
                     </div>
                 </div>
                 <div class="col-xs-3"></div>
-                
+
                 <!-- Select compact or post mode -->
                 <div class="col-xs-3">
                     <div class="dropdown">
@@ -42,7 +42,7 @@
         </div>
     </div>
     <hr>
-    <!-- Movies's Visualization in compact or post mode, see movieTile component -->  
+    <!-- Movies's Visualization in compact or post mode, see movieTile component -->
     <div>
         <div *ngFor="let movie of movies">
             <movie-tile [movie]="movie" [size]="size" [viewMode]="viewMode"> </movie-tile>

@@ -5,5 +5,6 @@ to be accessed in any component
 export const settings = {
     apiKey: '802cd9bec58e75474a66bfa717fd1106',
     apiUrl: 'https:////api.themoviedb.org/',
-    apiImg: '//image.tmdb.org/t/p/w500'
+    apiImg: '//image.tmdb.org/t/p/w500',
+    apiVersion: '3'
 }

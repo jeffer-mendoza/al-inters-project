@@ -23,10 +23,10 @@ export class MovieService {
   /**
    * Service for access movies's list filtered by year and genre
    *
-   * param string year:   primary release year filter
-   * param integer genre: movies's genre filter
+   * @param string year:   primary release year filter
+   * @param integer genre: movies's genre filter
    *
-   * return Promise<any>
+   * @return Promise<any>
    */
   getMovies(year, genre): Promise<any> {
 
@@ -47,7 +47,7 @@ export class MovieService {
 
   /**
    * Service for access movie's genre
-   * return Promise<any>
+   * @return Promise<any>
    */
   getGenres(): Promise<any>{
 
@@ -57,6 +57,19 @@ export class MovieService {
       .get(url)
       .toPromise()
       .then(response => response.json());
+  }
+
+  /**
+   *
+   * @param id
+   * @returns Promise<Movie>
+   */
+  getMovie(id: number): Promise<Movie> {
+    const url = this.apiUrl + '/movie/' + id + '?api_key=' + this.apiKey + '&append_to_response=alternative_titles,credits,releases,videos,similar,reviews,images';
+
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json() as Movie);
   }
 
 }

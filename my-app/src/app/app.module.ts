@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MovieComponent } from './movie/movie.component';
 import { MovieTileComponent } from './movie-tile/movie-tile.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MovieComponent,
-    MovieTileComponent
+    MovieTileComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,

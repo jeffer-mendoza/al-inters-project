@@ -60,15 +60,17 @@
         </ul>
       </div>
       <div *ngFor="let actor of movie.credits.cast | slice:0:9">
-        <div class="col-sm-6 col-md-3">
-          <div class="thumbnail">
-            <img src="{{apiImg}}{{actor.profile_path}}">
-            <div class="caption">
-              <h5>{{ actor.name }}</h5>
-              <small>{{ actor.character }}</small>
+        <a [routerLink]="['/actor', actor.id]">
+          <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+              <img src="{{apiImg}}{{actor.profile_path}}">
+              <div class="caption">
+                <h5>{{ actor.name }}</h5>
+                <small>{{ actor.character }}</small>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
@@ -81,17 +83,19 @@
     </div>
   </div>
 
-<!-- Modal -->
-<div class="row">
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="row">
-        <iframe style="margin-left: -200px" width="1000" height="600" [src]="video" frameborder="0" allowfullscreen></iframe>
-      </div>
+  <!-- Modal -->
+  <div class="row">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="row">
+          <iframe style="margin-left: -200px" width="1000" height="600" [src]="video" frameborder="0"
+                  allowfullscreen></iframe>
+        </div>
 
+      </div>
     </div>
   </div>
-</div>
-<script>
-  $('#myModal').on('shown.bs.modal', function () {})
-</script>
+  <script>
+    $('#myModal').on('shown.bs.modal', function () {
+    })
+  </script>

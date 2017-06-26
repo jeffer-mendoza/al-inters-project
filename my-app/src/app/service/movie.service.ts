@@ -4,6 +4,7 @@ import {Http}       from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import {Movie} from '../model/movie';
+import {Actor} from '../model/actor'
 import {settings} from '../settings';
 
 /**
@@ -23,12 +24,12 @@ export class MovieService {
   /**
    * Service for access movies's list filtered by year and genre
    *
-   * @param string year:   primary release year filter
-   * @param integer genre: movies's genre filter
+   * @param year:   primary release year filter
+   * @param genre: movies's genre filter
    *
    * @return Promise<any>
    */
-  getMovies(year, genre): Promise<any> {
+  getMovies(year:number, genre:number): Promise<any> {
 
     if (genre === undefined) {
       genre = 28;
@@ -70,6 +71,19 @@ export class MovieService {
     return this.http.get(url)
       .toPromise()
       .then(response => response.json() as Movie);
+  }
+
+  /**
+   *
+   * @param id
+   * @returns Promise<Actor>
+   */
+  getActor(id: number): Promise<Actor> {
+    const url = this.apiUrl + '/person/' + id + '?api_key=' + this.apiKey + '&append_to_response=also_known_as,biography,birthday,name,place_of_birth,popularity,profile_path';
+
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json() as Actor);
   }
 
 }

@@ -1,0 +1,27 @@
+.cover{
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  min-height: 60vh;
+}
+
+.profile{
+  margin-top: -280px;
+}
+
+.text-white{
+  color: white;
+}
+
+.btn-trailer{
+  margin-top: 50vh;
+  margin-right: 200px;
+}
+
+ul {
+  list-style-type: none;
+}
+ul li{
+  margin-bottom: 10px;
+}
+

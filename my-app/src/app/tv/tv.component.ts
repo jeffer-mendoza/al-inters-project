@@ -7,7 +7,6 @@ import { Tv } from '../model/tv';
   selector: 'app-tv',
   templateUrl: './tv.component.html',
   styleUrls: ['./tv.component.css'],
-  providers: [TvService]
 })
 export class TvComponent implements OnInit {
 

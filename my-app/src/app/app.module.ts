@@ -14,6 +14,8 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { ActorComponent } from './actor/actor.component';
 import { SearchComponent } from './search/search.component';
 import { TvComponent } from './tv/tv.component';
+import { TvDetailComponent } from './tv-detail/tv-detail.component';
+import {TvService} from "./service/tv.service";
 
 @NgModule({
   declarations: [
@@ -24,14 +26,15 @@ import { TvComponent } from './tv/tv.component';
     MovieDetailComponent,
     ActorComponent,
     SearchComponent,
-    TvComponent
+    TvComponent,
+    TvDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule
   ],
-  providers: [MovieService],
+  providers: [MovieService, TvService],
   bootstrap: [AppComponent]
 })
 

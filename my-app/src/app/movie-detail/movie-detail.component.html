@@ -84,20 +84,20 @@
       <movie-tile [movie]="movie" [size]="size" [viewMode]="true"></movie-tile>
     </div>
   </div>
-
-  <!-- Modal -->
-  <div class="row">
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="row">
-          <iframe style="margin-left: -200px" width="1000" height="600" [src]="video" frameborder="0"
-                  allowfullscreen></iframe>
-        </div>
-
+</div>
+<!-- Modal -->
+<div class="row">
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="row">
+        <iframe style="margin-left: -200px" width="1000" height="600" [src]="video" frameborder="0"
+                allowfullscreen></iframe>
       </div>
+
     </div>
   </div>
-  <script>
-    $('#myModal').on('shown.bs.modal', function () {
-    })
-  </script>
+</div>
+<script>
+  $('#myModal').on('shown.bs.modal', function () {
+  })
+</script>

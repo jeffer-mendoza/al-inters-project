@@ -10,4 +10,10 @@ export class Actor {
   place_of_birth: string;
   popularity: number;
   profile_path: string;
+  external_ids:{
+    facebook_id: string,
+    instagram_id: string,
+    twitter_id:string
+  }
+
 }

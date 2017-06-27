@@ -8,7 +8,7 @@
 
   <ul class="nav nav-tabs">
     <li role="presentation" [class.active]="isDetail"><a (click)="changeTab(false, true)">Detail</a></li>
-    <li role="presentation" [class.active]="isSimilar"><a (click)="changeTab(true,false)">Season</a></li>
+    <li role="presentation" [class.active]="isSeason"><a (click)="changeTab(true,false)">Season</a></li>
   </ul>
   <!--Detail-->
   <div *ngIf="isDetail" class="row">

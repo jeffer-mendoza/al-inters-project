@@ -8,6 +8,10 @@
  color: white;
 }
 
+.navbar{
+  margin-bottom: 0px !important;
+}
+
 .nav li a:focus,
 .nav li a:hover {
  background-color: #2C2A2E;

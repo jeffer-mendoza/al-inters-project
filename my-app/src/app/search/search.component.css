@@ -1,0 +1,40 @@
+.active{
+  width: 80vw !important;
+}
+
+.desactive{
+  width: 200px !important;
+}
+
+input {
+  float: right;
+  clear: both;
+}
+
+.result{
+  margin-top: 50px;
+}
+
+.result a{
+  color: white;
+}
+
+.result a:hover{
+  color: white;
+}
+
+.result .row{
+  margin-bottom: 30px;
+}
+
+.result .row:hover{
+  background-color: #2C2A2E;
+}
+
+small{
+  margin-right: 10px;
+}
+
+.type{
+  margin-top: 10px;
+}

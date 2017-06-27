@@ -61,9 +61,11 @@
       </div>
       <div *ngFor="let actor of movie.credits.cast | slice:0:9">
         <a [routerLink]="['/actor', actor.id]">
-          <div class="col-sm-6 col-md-3">
+          <div class="col-sm-6 col-md-2">
             <div class="thumbnail">
-              <img src="{{apiImg}}{{actor.profile_path}}">
+              <img *ngIf="actor.profile_path" src="{{apiImg}}{{actor.profile_path}}">
+              <img *ngIf="!actor.profile_path" width="100" height="130"
+                   src="http://www.huntsvillephotographicsociety.org/packages/photo_contest/blocks/member_gallery/images/profile.png">
               <div class="caption">
                 <h5>{{ actor.name }}</h5>
                 <small>{{ actor.character }}</small>

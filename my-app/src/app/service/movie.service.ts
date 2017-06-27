@@ -47,31 +47,6 @@ export class MovieService {
   }
 
   /**
-   * Service for access movies's list filtered by year and genre
-   *
-   * @param year:   primary release year filter
-   * @param genre: movies's genre filter
-   *
-   * @return Promise<any>
-   */
-  // getMoviesByActor(id:number, genre:number): Promise<any> {
-  //
-  //   if (genre === undefined) {
-  //     genre = 28;
-  //   }
-  //   if (year === undefined) {
-  //     year = 2016;
-  //   }
-  //
-  //   const url = this.apiUrl + '/discover/movie?primary_release_year=' + year + '&with_genres=' + genre + '&api_key=' + this.apiKey;
-  //
-  //   return this.http
-  //     .get(url)
-  //     .toPromise()
-  //     .then(response => response.json());
-  // }
-
-  /**
    * Service for access movie's genre
    * @return Promise<any>
    */

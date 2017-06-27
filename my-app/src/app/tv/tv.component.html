@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center" style="margin: 15px">
+      <div class="row">
+        <div class="col-xs-9">
+
+        </div>
+        <!-- Select compact or post mode -->
+        <div class="col-xs-3">
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle"
+                    type="button" id="dropdownMenu1" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true"> View
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a (click)="changeViewMode(true)">Compact</a></li>
+              <li><a (click)="changeViewMode(false)">Posts</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <!-- Tv's Visualization in compact or post mode, see movieTile component -->
+  <div>
+    <div *ngFor="let tv of tvs">
+      <movie-tile [tv]="tv" [size]="size" [viewMode]="viewMode"> </movie-tile>
+    </div>
+  </div>
+</div>

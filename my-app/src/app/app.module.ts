@@ -13,6 +13,7 @@ import { MovieTileComponent } from './movie-tile/movie-tile.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { ActorComponent } from './actor/actor.component';
 import { SearchComponent } from './search/search.component';
+import { TvComponent } from './tv/tv.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SearchComponent } from './search/search.component';
     MovieTileComponent,
     MovieDetailComponent,
     ActorComponent,
-    SearchComponent
+    SearchComponent,
+    TvComponent
   ],
   imports: [
     BrowserModule,

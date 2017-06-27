@@ -1,16 +1,16 @@
 /**
  * Class representation of Movie
  */
-export class Movie {
+export class Tv {
   id: number;
-  title: string;
+  name: string;
+  original_name:string;
   overview: string;
+  vote_average: number;
+  first_air_date:string;
   videos: {
     results: any[]
   };
   backdrop_path:string;
   poster_path:string;
-  original_title:string;
-  vote_average: number;
-  release_date: string;
 }
